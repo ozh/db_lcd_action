@@ -48,16 +48,16 @@ def get_or_make_image_from_db_level(db_level: int) -> Image:
     draw = ImageDraw.Draw(image)
 
     # DB level text
-    draw_text(draw=draw, text=f"{db_level} dB", text_size=35, color="white", position={'y': 125}, font='assets/fonts/Verdana.ttf')
+    draw_text(draw=draw, text=f"{db_level} dB", text_size=46, color="white", position={'y': 117}, font='assets/fonts/Verdana.ttf')
 
     # Update min / max level
     min_level, max_level = get_min_max(db_level)
-    draw_text(draw=draw, text=min_level, text_size=12, color=whitish, position={'x': 79, 'y': 32}, font='assets/fonts/Verdana.ttf')
-    draw_text(draw=draw, text=max_level, text_size=12, color=whitish, position={'x': 147, 'y': 32}, font='assets/fonts/Verdana.ttf')
+    draw_text(draw=draw, text=min_level, text_size=18, color=whitish, position={'x': 78, 'y': 28}, font='assets/fonts/Verdana.ttf')
+    draw_text(draw=draw, text=max_level, text_size=18, color=whitish, position={'x': 143, 'y': 28}, font='assets/fonts/Verdana.ttf')
 
     # Update hour in hh:mm:ss format
     current_time = datetime.now().strftime("%H:%M:%S")
-    draw_text(draw=draw, text=current_time, text_size=18, color="white", position={'y': 186}, font='assets/fonts/DejaVuSansMono.ttf')
+    draw_text(draw=draw, text=current_time, text_size=24, color="white", position={'y': 186}, font='assets/fonts/DejaVuSansMono.ttf')
 
     return image
 
