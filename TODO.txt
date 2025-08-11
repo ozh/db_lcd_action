@@ -1,0 +1,7 @@
+dot .env settings
+
+Define min, med and max dB thresholds and don't hardcode them
+
+Save generated images instead of generating them every time ??
+
+Add max DB reached
