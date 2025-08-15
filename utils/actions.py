@@ -74,7 +74,7 @@ def throttle_bandwith(rate_bps):
     # for direction in [1, 2]:  # 1=ingress (incoming), 2=egress (outgoing)
     #     oid = f"1.3.6.1.4.1.4526.10.1.1.1.2.1.1.{port}.{direction}"
     #     cmd = ["snmpset", "-v", "2c", "-c", "public", switch_ip, oid, "i", str(rate_bps)]
-    subprocess.run(cmd, check=True)
+    #     subprocess.run(cmd, check=True)
 
     rate_kbps = rate_bps / 1000
     if rate_kbps >= 1000:
