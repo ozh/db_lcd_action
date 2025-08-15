@@ -4,12 +4,12 @@ from datetime import datetime
 
 from PIL import Image,ImageDraw,ImageFont
 
-from utils.constants import LCD_SCREEN, DB_THRESH_LOW, DB_THRESH_MEDIUM
+from utils.params import LCD_SCREEN, get_db_thresholds
 
 if sys.platform == "win32":
     # On windows, we will use tkinter to display the image
-    from tkinter import *
-    from PIL import ImageTk, Image
+    from tkinter import Tk, Label
+    from PIL import ImageTk
 
 
 def show_image_from_db_level(db_level: int):
@@ -17,27 +17,23 @@ def show_image_from_db_level(db_level: int):
     Show an image based on the decibel level on the LCD screen.
     :param db_level: Decibel level to display.
     """
-    image = get_or_make_image_from_db_level(db_level)
+    image = make_image_from_db_level(db_level)
     lcd_show_image(image)
 
 
-def get_or_make_image_from_db_level(db_level: int) -> Image:
+def make_image_from_db_level(db_level: int) -> Image:
     """
     Create an image based on the decibel level.
     :param db_level:
     :return:
     """
-    # Check if "db_level_XXX.jpg" exists in assets/db_levels/
-    image_filename = f"assets/db_levels/db_level_{db_level}.jpg"
-
-    # if os.path.exists(image_filename):
-    #     return Image.open(image_filename)
+    db_thresh_low, db_thresh_medium = get_db_thresholds()
 
     # Create image on the fly
-    if db_level < DB_THRESH_LOW:
+    if db_level < db_thresh_low:
         image_filename = "assets/db_levels/green.jpg"
         whitish = (144, 191, 174)
-    elif db_level < DB_THRESH_MEDIUM:
+    elif db_level < db_thresh_medium:
         image_filename = "assets/db_levels/orange.jpg"
         whitish = (235, 185, 145)
     else:
@@ -62,7 +58,19 @@ def get_or_make_image_from_db_level(db_level: int) -> Image:
     return image
 
 
+
+
 def draw_text(draw, text, text_size, color, position, font):
+    """
+    Draw text on the image with specified parameters.
+    :param draw:  ImageDraw object to draw on the image
+    :param text:  Text to draw on the image
+    :param text_size:  Size of the text to draw
+    :param color:  Color of the text to draw
+    :param position:  Position to draw the text on the image, can be a dict with one or both 'x' and 'y' keys
+    :param font:  Font file to use for the text
+    :return:  None
+    """
     text = str(text)
     font = ImageFont.truetype(font, text_size)
     _, _, text_width, text_height = font.getbbox(text)

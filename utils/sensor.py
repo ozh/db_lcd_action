@@ -1,7 +1,7 @@
 import sys
 import random
 
-from utils.constants import DB_SENSOR_BUS, DB_SENSOR_ADDRESS
+from utils.params import DB_SENSOR_BUS, DB_SENSOR_ADDRESS
 
 def get_db_level():
     if sys.platform == "win32":
