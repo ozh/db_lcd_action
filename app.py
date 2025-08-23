@@ -1,9 +1,10 @@
+import logging
 import time
-import sys
 
 from utils.actions import take_action
-from utils.lcd import show_image_from_db_level
+from utils.lcd import show_image_from_db_level, lcd_switch_off
 from utils.sensor import get_db_level
+
 
 def main():
     while True:
@@ -17,4 +18,5 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("Ctrl^C -> Exiting application.")
+        lcd_switch_off()
+        logging.critical("Ctrl^C -> Exiting application.")

@@ -1,10 +1,13 @@
-import os
 import sys
 from datetime import datetime
 
 from PIL import Image,ImageDraw,ImageFont
+from isort.sorting import module_key
 
 from utils.params import LCD_SCREEN, get_db_thresholds
+
+if sys.platform != "win32":
+    import RPi.GPIO as GPIO
 
 if sys.platform == "win32":
     # On windows, we will use tkinter to display the image
@@ -56,8 +59,6 @@ def make_image_from_db_level(db_level: int) -> Image:
     draw_text(draw=draw, text=current_time, text_size=24, color="white", position={'y': 186}, font='assets/fonts/DejaVuSansMono.ttf')
 
     return image
-
-
 
 
 def draw_text(draw, text, text_size, color, position, font):
@@ -117,6 +118,18 @@ def lcd_backlight(level: int = 50):
     :param level: Backlight level (0-100).
     """
     LCD_SCREEN.bl_DutyCycle(level)
+
+
+def lcd_switch_off():
+    """
+    Really switch off the LCD screen (setting the backlight to 0 and clearing the screen isn't enough).
+    (This isn't a part of WaveShare's library)
+    """
+    LCD_SCREEN.module_exit()
+    PWR_PIN = 18
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(PWR_PIN, GPIO.OUT)
+    GPIO.output(PWR_PIN, GPIO.LOW)
 
 
 def lcd_clear():

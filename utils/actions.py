@@ -8,7 +8,6 @@ import logging
 import subprocess
 from datetime import timedelta, datetime
 
-
 from utils.params import get_db_thresholds
 
 ACTION_TAKEN = False

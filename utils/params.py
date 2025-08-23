@@ -42,6 +42,7 @@ logging.basicConfig(
     datefmt='%H:%M:%S',
 )
 
+
 def is_daytime() -> bool:
     """
     Check if the current time is within the defined day period.
