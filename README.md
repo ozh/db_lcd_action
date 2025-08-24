@@ -32,3 +32,24 @@ The code presented here will serve more as a starting point for your own project
 - A Raspberry (I used a Pi 3 A+ for the record)
 - (A network switch with SNMP support)
 
+# 🧩 Setup and code
+
+Out of the box, the "measure and display" parts are fully functional. Everything can be configured via an `.env` file : copy `.env-example` and adjust.
+
+You will want to edit and customize for your need the `utils/actions.py` file : here, describe what action you will want to take. There are placeholders
+and messages logged to help you through it, but you will be on your own.
+
+You will find the exact code I used to throttle and restore the bandwidth on my network switch but, again, this won't work for you.
+
+# 📷 Pictures
+
+Prototype :
+
+<img width="960" height="843" alt="image" src="https://github.com/user-attachments/assets/38289c11-971e-431b-a6fb-7afccbb569be" />
+
+# 📝 License
+
+My second Python project 🎉 
+
+Everything licensed under the WTF Public License. [![WTFPL](https://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)](http://www.wtfpl.net/about/)
+Feel free to do whatever the hell you want with it.
