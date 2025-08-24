@@ -36,9 +36,10 @@ The code presented here will serve more as a starting point for your own project
 
 Out of the box, the "measure and display" parts are fully functional. Everything can be configured via an `.env` file : copy [`.env-example`](https://github.com/ozh/db_lcd_action/blob/master/.env-example) and adjust.
 
-You will want to edit and customize [`utils/actions.py`](https://github.com/ozh/db_lcd_action/blob/master/utils/actions.py) : here, describe what action you will want to take. There are placeholders
-and messages logged to help you through it, but you will be on your own.
-
+* [`utils/sensor.py`](https://github.com/ozh/db_lcd_action/blob/master/utils/sensor.py) has the very simple code to measure dB level
+* In [`utils/lcd.py`](https://github.com/ozh/db_lcd_action/blob/master/utils/lcd.py) you will find everything to display on the LCD screen. It generates an image on the fly with all the info, using a template image found in [`assets/db_levels`](https://github.com/ozh/db_lcd_action/tree/master/assets/db_levels)
+* You will want to edit and customize [`utils/actions.py`](https://github.com/ozh/db_lcd_action/blob/master/utils/actions.py) to code what action you will want to take. There are placeholders
+and messages logged to help you through it, but you will be on your own.<br/>
 You will find the exact code I used to throttle and restore the bandwidth on my network switch but, again, this won't work for you.
 
 # 📷 Pictures
