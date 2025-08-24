@@ -42,6 +42,15 @@ Out of the box, the "measure and display" parts are fully functional. Everything
 and messages logged to help you through it, but you will be on your own.<br/>
 You will find the exact code I used to throttle and restore the bandwidth on my network switch but, again, this won't work for you.
 
+You will need to `sudo apt get install i2c-tools`, and `pip install` the following :
+
+* `dotenv`
+* `pillow`
+* `spidev`
+* `numpy`
+* `smbus`
+* `RPi.GPIO`
+
 # 📷 Pictures
 
 Prototype :
