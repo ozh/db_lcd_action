@@ -23,7 +23,7 @@ This project has been a lot of fun _with_ my kid actually (details in the Reddit
 Per popular demand I'm publishing all my code, but... It's not like there a magical universal command to adjust bandwidth on your home network switch. It's dependant on your
 network switch, if capable at all.
 
-The code presented here will serve more as a starting point for your own project. Fiddle with an SNMP capable switch ? Light some LEDs ? Play a warning sound ? It all depends on your needs and hardware capability.
+The code presented here will serve more as a starting point for your own project. Light some LEDs ? Fiddle with an SNMP capable switch ? Play a warning sound ? It all depends on your needs and hardware capability.
 
 # 🖥️ Hardware I used
 
@@ -34,9 +34,9 @@ The code presented here will serve more as a starting point for your own project
 
 # 🧩 Setup and code
 
-Out of the box, the "measure and display" parts are fully functional. Everything can be configured via an `.env` file : copy `.env-example` and adjust.
+Out of the box, the "measure and display" parts are fully functional. Everything can be configured via an `.env` file : copy [`.env-example`](https://github.com/ozh/db_lcd_action/blob/master/.env-example) and adjust.
 
-You will want to edit and customize for your need the `utils/actions.py` file : here, describe what action you will want to take. There are placeholders
+You will want to edit and customize [`utils/actions.py`](https://github.com/ozh/db_lcd_action/blob/master/utils/actions.py) : here, describe what action you will want to take. There are placeholders
 and messages logged to help you through it, but you will be on your own.
 
 You will find the exact code I used to throttle and restore the bandwidth on my network switch but, again, this won't work for you.
